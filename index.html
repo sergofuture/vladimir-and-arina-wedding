@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Приглашение на нашу свадьбу</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+	</head>
+	<body>
+
+		<!-- Главный экран со слайд-шоу -->
+		<header class="hero">
+			<div class="hero-slideshow">
+				<!-- Замените URL на ваши фотографии -->
+				<div class="slide active" style="background-image: url('images/Photo-1.png')"></div>
+				<div class="slide" style="background-image: url('images/Photo-2.png')"></div>
+				<div class="slide" style="background-image: url('images/Photo-3.png')"></div>
+			</div>
+			<div class="hero-overlay"></div>
+			<div class="hero-content">
+				<div class="floral-decor"></div>
+				<h1>Владимир & Арина</h1>
+				<p class="hero-date">31 июля 2026</p>
+				<p class="hero-subtitle">Приглашаем на нашу свадьбу!</p>
+				
+			</div>
+		</header>
+		
+		<!-- Блок с приветственным текстом перед календарем -->
+		<section class="welcome-text-section reveal">
+			<div class="container text-container">
+				<div class="floral-decor">🌿</div>
+				<h2>Дорогие родные и близкие!</h2>
+				<p class="welcome-paragraph">
+					В нашей жизни предстоит радостное событие — день нашей свадьбы!
+					Мы верим и надеемся, что этот день станет началом долгого и счастливого пути.
+					Для нас очень важно разделить этот особенный момент с теми, кого мы любим и ценим больше всего.
+				</p>
+				<p class="welcome-paragraph font-highlight">
+					Ждем вас на нашем семейном празднике!
+				</div>
+				<div class="floral-decor">🌸</div>
+			</div>
+		</section>
+		
+		<!-- Секция с календарем -->
+		<section class="calendar-section reveal">
+			<div class="container">
+				<h2>Сохраните дату</h2>
+				<div class="floral-decor">🌿</div>
+				<p class="calendar-subtitle">Июль 2026</p>
+
+				<div class="calendar-wrapper">
+					<!-- Дни недели -->
+					<div class="calendar-weekdays">
+						<div>Пн</div>
+						<div>Вт</div>
+						<div>Ср</div>
+						<div>Чт</div>
+						<div>Пт</div>
+						<div>Сб</div>
+						<div>Вс</div>
+					</div>
+					<!-- Сетка календаря (Июль 2026 начинается со среды) -->
+					<div class="calendar-days">
+						<!-- Пустые ячейки для Пн и Вт, так как 1 июля — это среда -->
+						<div class="empty"></div>
+						<div class="empty"></div>
+
+						<!-- Числа месяца -->
+						<div>1</div>
+						<div>2</div>
+						<div>3</div>
+						<div>4</div>
+						<div>5</div>
+						<div>6</div>
+						<div>7</div>
+						<div>8</div>
+						<div>9</div>
+						<div>10</div>
+						<div>11</div>
+						<div>12</div>
+						<div>13</div>
+						<div>14</div>
+						<div>15</div>
+						<div>16</div>
+						<div>17</div>
+						<div>18</div>
+						<div>19</div>
+						<div>20</div>
+						<div>21</div>
+						<div>22</div>
+						<div>23</div>
+						<div>24</div>
+						<div>25</div>
+						<div>26</div>
+						<div>27</div>
+						<div>28</div>
+						<div>29</div>
+						<div>30</div>
+
+						<!-- 31 число с сердечком -->
+						<div class="wedding-day">31</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Счётчик времени -->
+		<section class="countdown-section reveal">
+			<h2>До торжества осталось:</h2>
+			<div id="countdown" class="timer">
+				<div class="timer-item"><span id="days">00</span>
+					<p>дней</p></div>
+				<div class="timer-item"><span id="hours">00</span>
+					<p>часов</p></div>
+				<div class="timer-item"><span id="minutes">00</span>
+					<p>минут</p></div>
+				<div class="timer-item"><span id="seconds">00</span>
+					<p>секунд</p></div>
+			</div>
+		</section>
+		
+		<!-- Программа торжества на 2 дня -->
+		<section class="timeline-section reveal">
+			<div class="container">
+				<h2>Программа торжества</h2>
+				<div class="floral-decor">🌿</div>
+
+				<!-- Переключатели дней -->
+				<div class="days-switcher">
+					<button class="day-btn active" onclick="switchDay(1)">День 1 </button>
+					<button class="day-btn" onclick="switchDay(2)">День 2</button>
+				</div>
+
+<!-- КОНТЕНТ ПЕРВОГО ДНЯ (Обновленный) -->
+<div id="day-1-content" class="timeline-container active">
+	<div class="timeline">
+		<!-- Событие 1 -->
+		<div class="timeline-item">
+			<div class="timeline-icon">🥂</div>
+			<div class="timeline-content">
+				<h3>11:00 — Сбор гостей (р. Малоогневочка, поле)</h3>
+				<p>Приветственный фуршет, легкие закуски и знакомство под музыку.</p>
+			</div>
+		</div>
+
+		<!-- Событие 2 -->
+		<div class="timeline-item">
+			<div class="timeline-icon">💍</div>
+			<div class="timeline-content">
+				<h3>12:00 — Свадебная церемония</h3>
+				<p>Самый важный и трогательный момент нашего дня — торжественная регистрация.</p>
+			</div>
+		</div>
+
+		<!-- Событие 3 -->
+		<div class="timeline-item">
+			<div class="timeline-icon">🍽</div>
+			<div class="timeline-content">
+				<h3>17:00 — Банкет</h3>
+				<p>Начало банкета, праздничная программа, тосты и поздравления.</p>
+			</div>
+		</div>
+
+		<!-- НОВОЕ СОБЫТИЕ 4 -->
+		<div class="timeline-item">
+			<div class="timeline-icon">🎆</div>
+			<div class="timeline-content">
+				<h3>23:30 — Завершение вечера</h3>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+				<!-- КОНТЕНТ ВТОРОГО ДНЯ -->
+				<div id="day-2-content" class="timeline-container">
+					<div class="timeline">
+						<div class="timeline-item">
+							<div class="timeline-icon">🍳</div>
+							<div class="timeline-content">
+								<h3>12:00 — Начало празднования (р. Малоогневочка, поле)</h3>
+								<p>Традиционные славянские забавы, испытания для молодых, фотосессия в народных костюмах, максимальный уют и песни под гитару </p>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+		</section>
+		
+		<!-- Дресс-код: 5 цветов для 1 дня и Русско-народный стиль для 2 дня -->
+		<section class="dresscode-section reveal">
+			<div class="container">
+				<h2>Дресс-код</h2>
+				<div class="floral-decor">🌸</div>
+				<p class="dresscode-intro">Мы будем очень рады, если вы поддержате атмосферу наших праздничных дней в своих нарядах.</p>
+
+				<div class="dresscode-days">
+					<!-- Первый день -->
+					<div class="dresscode-day-card">
+						<h3>День 1 — Торжество</h3>
+						<p class="style-name">Природные оттенки</p>
+						<p>Для нас важно создать красивую общую картину на фотографиях. Будем признательны, если при выборе нарядов вы придержитесь нашей свадебной палитры:</p>
+
+						<div class="color-palette">
+							<div class="color-circle" style="background-color: #6B8E23;" data-color="Оливковый"></div>
+							<div class="color-circle" style="background-color: #A9BA9D;" data-color="Шалфей"></div>
+							<div class="color-circle" style="background-color: #D2B48C;" data-color="Бежевый"></div>
+							<div class="color-circle" style="background-color: #BC8F8F;" data-color="Пыльная роза"></div>
+							<div class="color-circle" style="background-color: #5C4033;" data-color="Шоколадный"></div>
+						</div>
+					</div>
+
+					<!-- Второй день -->
+					<div class="dresscode-day-card">
+						<h3>День 2</h3>
+						<p class="style-name">Стиль: Русско-народный / Славянский casual</p>
+						<div class="folk-style-description">
+							<p>Второй день нашего праздника пройдет в тёплой атмосфере русских традиций на свежем воздухе! 🌾</p>
+							<p>Приветствуются элементы русско-народного стиля в одежде: свободные льняные или хлопковые рубахи, сарафаны, платья в пол, цветочные принты, вышивка или орнаменты.</p>
+							<p>Главное — чтобы вам было максимально уютно и комфортно.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Форма RSVP -->
+		<section id="rsvp" class="rsvp-section reveal">
+			<div class="container form-container">
+				<h2>Анкета гостя</h2>
+
+				<form id="rsvp-form">
+					<div class="form-group">
+						<label for="name">Ваше Имя и Фамилия:</label>
+						<input type="text" id="name" name="name" placeholder="Иван и Ольга Ивановы" required>
+					</div>
+
+					<div class="form-group">
+						<label>Присутствие:</label>
+						<div class="radio-group">
+							<label class="radio-label">
+								<input type="radio" name="attendance" value="yes" checked> Я приду / Мы придем
+							</label>
+							<label class="radio-label">
+								<input type="radio" name="attendance" value="no"> К сожалению, не смогу
+							</label>
+						</div>
+					</div>
+
+					<!-- Блок с выбором напитков (скрывается, если "не приду") -->
+					<div id="drinks-block" class="form-group">
+						<label style="display: block;">Пожелания по напиткам (можно несколько):</label>
+						<div class="checkbox-group">
+							<label class="checkbox-label"><input type="checkbox" name="drinks" value="wine-red"> Красное вино</label>
+							<label class="checkbox-label"><input type="checkbox" name="drinks" value="wine-white"> Белое вино</label>
+							<label class="checkbox-label"><input type="checkbox" name="drinks" value="champagne"> Игристое</label>
+							<label class="checkbox-label"><input type="checkbox" name="drinks" value="whiskey"> Крепкие напитки (виски/коньяк/водка)</label>
+							<label class="checkbox-label"><input type="checkbox" name="drinks" value="beer"> Пиво</label>
+							<label class="checkbox-label"><input type="checkbox" name="drinks" value="non-alcoholic"> Без алкоголя</label>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-submit">Отправить ответ</button>
+				</form>
+				<div id="form-message" class="hidden-message">Спасибо за ответ! Мы вас очень ждем! ✨</div>
+			</div>
+		</section>
+
+		<footer>
+			<p>Ждем вас на нашем празднике! 🌿</p>
+		</footer>
+
+		<script src="script.js"> </script>
+		
+		<!-- Аудио-плеер -->
+		<audio id="bg-music" src="audio/wedding-song.mp3" loop></audio>
+
+		<!-- Кнопка включения/выключения музыки -->
+		<button type="button" id="music-toggle" class="music-btn" onclick="toggleMusic()">
+			<span id="music-icon">🎵</span>
+		</button>
+
+		<script src="script.js"> </script>
+		</body>
+	</body>
+</html>
