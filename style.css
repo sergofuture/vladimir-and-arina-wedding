@@ -595,3 +595,15 @@ footer {
 .rsvp-section div {
     pointer-events: auto !important;
 }
+
+/* Принудительно отображаем секцию анкеты и разрешаем внутри неё клики */
+.rsvp-section.reveal {
+	opacity: 1 !important;
+	transform: none !important;
+	pointer-events: auto !important;
+}
+
+.rsvp-section iframe {
+	width: 100% !important;
+	pointer-events: auto !important;
+}
