@@ -235,41 +235,40 @@
 		<section id="rsvp" class="rsvp-section reveal">
 			<div class="container form-container">
 				<h2>Анкета гостя</h2>
+				
+				<div class="fdforms" data-id="245193"></div>
 
-				<form id="rsvp-form">
-					<div class="form-group">
-						<label for="name">Ваше Имя и Фамилия:</label>
-						<input type="text" id="name" name="name" placeholder="Иван и Ольга Ивановы" required>
-					</div>
+				<script type="text/javascript">
+					(function (d, o) {
+						var s = d.createElement("script"), g = "getElementsByTagName";
+						s.type = "text/javascript"; s.async = true;
+						s.src = "//formdesigner.ru/js/universal/init.js?v=1.0.0";
+						s.onload = function () {
+							if (document.readyState !== 'loading') {
+								FD.init(o);
+							} else document.addEventListener("DOMContentLoaded", function () {
+								FD.init(o);
+							});
+						};
+						var h=d[g]("head")[0] || d[g]("body")[0];
+						h.appendChild(s);
+					})(document, {
+					"host": "formdesigner.ru",
+					"forms": {
+						"245193": {
+							"width": "100%", /* Поменял с 600px на 100%, чтобы форма идеально сужалась на телефонах */
+							"height": "auto",
+							"scroll": true,
+							"popup": {
+								"overlay": "rgba(25,25,25,0.9)",
+								"width": "600px",
+								"height": "auto"
+							}
+						}
+					}
+				});
+				</script>
 
-					<div class="form-group">
-						<label>Присутствие:</label>
-						<div class="radio-group">
-							<label class="radio-label">
-								<input type="radio" name="attendance" value="yes" checked> Я приду / Мы придем
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="attendance" value="no"> К сожалению, не смогу
-							</label>
-						</div>
-					</div>
-
-					<!-- Блок с выбором напитков (скрывается, если "не приду") -->
-					<div id="drinks-block" class="form-group">
-						<label style="display: block;">Пожелания по напиткам (можно несколько):</label>
-						<div class="checkbox-group">
-							<label class="checkbox-label"><input type="checkbox" name="drinks" value="wine-red"> Красное вино</label>
-							<label class="checkbox-label"><input type="checkbox" name="drinks" value="wine-white"> Белое вино</label>
-							<label class="checkbox-label"><input type="checkbox" name="drinks" value="champagne"> Игристое</label>
-							<label class="checkbox-label"><input type="checkbox" name="drinks" value="whiskey"> Крепкие напитки (виски/коньяк/водка)</label>
-							<label class="checkbox-label"><input type="checkbox" name="drinks" value="beer"> Пиво</label>
-							<label class="checkbox-label"><input type="checkbox" name="drinks" value="non-alcoholic"> Без алкоголя</label>
-						</div>
-					</div>
-
-					<button type="submit" class="btn btn-submit">Отправить ответ</button>
-				</form>
-				<div id="form-message" class="hidden-message">Спасибо за ответ! Мы вас очень ждем! ✨</div>
 			</div>
 		</section>
 

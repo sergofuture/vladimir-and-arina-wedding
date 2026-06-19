@@ -87,11 +87,30 @@ attendanceRadios.forEach(radio => {
 const rsvpForm = document.getElementById('rsvp-form');
 if (rsvpForm) {
 	rsvpForm.addEventListener('submit', function(e) {
-		e.preventDefault();
-		this.style.display = 'none';
+		e.preventDefault(); // Запрещаем стандартную перезагрузку страницы
+
+		const data = new FormData(this);
+		const action = this.getAttribute('action');
 		const msg = document.getElementById('form-message');
-		if (msg)
-			msg.style.display = 'block';
+
+		fetch(action, {
+			method: 'POST',
+			body: data
+		})
+		.then(response => {
+			// FormDesigner при успешной отправке возвращает статус 200
+			if (response.ok) {
+				rsvpForm.style.display = 'none'; // Прячем форму
+				if (msg)
+					msg.style.display = 'block'; // Показываем красивый текст успеха
+			} else {
+				alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+			}
+		})
+		.catch(error => {
+			alert('Ошибка сети. Проверьте подключение к интернету.');
+			console.error('Error:', error);
+		});
 	});
 }
 
