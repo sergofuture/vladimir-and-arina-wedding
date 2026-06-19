@@ -435,7 +435,7 @@ h2 {
 }
 
 .form-container {
-	background-color: var(--beige);
+	background-color: #f5f5f5;
 	padding: 40px;
 	border-radius: 15px;
 }
@@ -504,15 +504,18 @@ footer {
 
 /* Полное решение проблемы некликабельности анимированных блоков */
 .reveal {
-	opacity: 1 !important;
-	transform: none !important;
-	pointer-events: auto !important; 
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all 0.8s ease-out;
+	pointer-events: none; /* Пропускает клики, пока элемент скрыт */
 }
 
+/* Когда блок докручен и стал активным */
 .reveal.active {
-	opacity: 1;
-	transform: translateY(0);
-	pointer-events: auto; /* Включает кликабельность обратно при появлении */
+	opacity: 1 !important;
+	transform: translateY(0) !important;
+	pointer-events: auto !important; /* Полностью возвращает кликабельность */
+}
 }
 
 @media (max-width: 768px) {
@@ -603,7 +606,66 @@ footer {
 	pointer-events: auto !important;
 }
 
+/* Отдельно для фрейма анкеты гарантируем работу кликов */
 .rsvp-section iframe {
 	width: 100% !important;
 	pointer-events: auto !important;
+
+}
+
+/* Контейнер для фоновых элементов */
+.floating-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1; /* Приподнимаем над основным глухим фоном body */
+	pointer-events: none; /* Пропускаем клики сквозь листики */
+	overflow: hidden;
+}
+
+/* Общие стили для каждого листика/лепестка */
+.leaf {
+	position: absolute;
+	font-size: 1.6rem;
+	opacity: 0.45; /* Сделали чуть ярче, чтобы они не терялись на светлом фоне */
+	animation: floatAnimation 12s infinite ease-in-out;
+}
+
+/* Настраиваем позиции и задержки для элементов */
+.leaf-1 { top: 10%; left: 3%; animation-duration: 14s; animation-delay: 0s; }
+.leaf-2 { top: 35%; right: 5%; animation-duration: 18s; animation-delay: 2s; font-size: 1.3rem; }
+.leaf-3 { top: 60%; left: 4%; animation-duration: 16s; animation-delay: 1s; }
+.leaf-4 { top: 80%; right: 6%; animation-duration: 15s; animation-delay: 3s; }
+.leaf-5 { top: 25%; left: 90%; animation-duration: 20s; animation-delay: 4s; font-size: 1.4rem; }
+.leaf-6 { top: 50%; left: 8%; animation-duration: 13s; animation-delay: 0.5s; }
+
+/* Анимация плавного парения */
+@keyframes floatAnimation {
+	0% {
+		transform: translateY(0) translateX(0) rotate(0deg);
+	}
+	25% {
+		transform: translateY(-15px) translateX(10px) rotate(10deg);
+	}
+	50% {
+		transform: translateY(-30px) translateX(-5px) rotate(-15deg);
+	}
+	75% {
+		transform: translateY(-15px) translateX(-15px) rotate(5deg);
+	}
+	100% {
+		transform: translateY(0) translateX(0) rotate(0deg);
+	}
+}
+
+
+/* Поднимаем текстовые блоки над летающими листиками */
+.welcome-text-section,
+.calendar-section,
+.dress-code-section,
+.rsvp-section {
+	position: relative;
+	z-index: 2; /* Этот слой выше, чем у листиков (2 > 1) */
 }

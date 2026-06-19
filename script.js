@@ -71,48 +71,7 @@ function switchDay(dayNumber)
 	reveal();
 }
 
-// 4. Логика формы (Скрытие блока напитков, если гость не придет)
-const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
-const drinksBlock = document.getElementById('drinks-block');
 
-attendanceRadios.forEach(radio => {
-	radio.addEventListener('change', function() {
-		if (drinksBlock) {
-			drinksBlock.style.display = this.value === 'no' ? 'none' : 'block';
-		}
-	});
-});
-
-// 5. Отправка формы RSVP
-const rsvpForm = document.getElementById('rsvp-form');
-if (rsvpForm) {
-	rsvpForm.addEventListener('submit', function(e) {
-		e.preventDefault(); // Запрещаем стандартную перезагрузку страницы
-
-		const data = new FormData(this);
-		const action = this.getAttribute('action');
-		const msg = document.getElementById('form-message');
-
-		fetch(action, {
-			method: 'POST',
-			body: data
-		})
-		.then(response => {
-			// FormDesigner при успешной отправке возвращает статус 200
-			if (response.ok) {
-				rsvpForm.style.display = 'none'; // Прячем форму
-				if (msg)
-					msg.style.display = 'block'; // Показываем красивый текст успеха
-			} else {
-				alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
-			}
-		})
-		.catch(error => {
-			alert('Ошибка сети. Проверьте подключение к интернету.');
-			console.error('Error:', error);
-		});
-	});
-}
 
 // 6. Плавное появление элементов при прокрутке страницы
 function reveal()
