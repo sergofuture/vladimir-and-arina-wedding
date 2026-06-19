@@ -519,22 +519,108 @@ footer {
 }
 
 @media (max-width: 768px) {
-	.dresscode-days {
-		flex-direction: column;
-	align-items: center;
-	}
+	/* Заголовки */
 	.hero h1 {
 		font-size: 3rem;
 	}
+	h2 {
+		font-size: 2.3rem;
+	}
+	
+	/* Секции и контейнеры */
+	.welcome-text-section {
+		padding: 50px 0 30px 0;
+	}
+	.timeline-section, .dresscode-section, .rsvp-section {
+		padding: 50px 0;
+	}
+	.container {
+		padding: 0 15px; /* Уменьшаем боковые отступы, освобождая место */
+	}
+
+	/* Таймер обратного отсчета (Фикс обрезания) */
 	.timer {
-		gap: 10px;
+		gap: 8px; /* Уменьшаем расстояние между блоками */
+		padding: 0 5px;
+	}
+	.timer-item {
+		padding: 10px 5px;
+		min-width: 65px; /* Снижаем минимальную ширину, чтобы блоки не распирали экран */
+		flex: 1; /* Элементы будут равномерно сужаться */
+	}
+	.timer-item span {
+		font-size: 1.6rem; /* Чуть уменьшаем цифры */
+	}
+	.timer-item p {
+		font-size: 0.75rem; /* Уменьшаем подписи букв */
+	}
+
+	/* Расписание (Программа) */
+	.timeline {
+		padding-left: 35px; /* Сдвигаем линию левее, чтобы контент не зажимался */
+	}
+	.timeline::before {
+		left: 15px;
+	}
+	.timeline-icon {
+		left: -45px;
+		width: 34px;
+		height: 34px;
+		font-size: 1rem;
+	}
+	.timeline-content {
+		padding: 15px;
+	}
+	.timeline-content h3 {
+		font-size: 1rem;
+	}
+
+	/* Дресс-код */
+	.dresscode-days {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+	.dresscode-day-card {
+		width: 100%;
+		max-width: 100%;
+		padding: 20px;
 	}
 	.folk-style-description {
 		text-align: center;
 	}
+	.color-palette {
+		gap: 8px;
+	}
+	.color-circle {
+		width: 42px;
+		height: 42px;
+	}
+
+	/* Анкета RSVP (Подложка) */
+	.form-container {
+		padding: 25px 15px;
+	}
 }
 
-/* Принудительно возвращаем кликабельность всем интерактивным элементам анкеты */
+/* Дополнительный фикс для совсем маленьких экранов (смартфоны до 375px) */
+@media (max-width: 360px) {
+	.hero h1 {
+		font-size: 2.5rem;
+	}
+	.timer-item {
+		min-width: 55px;
+	}
+	.timer-item span {
+		font-size: 1.3rem;
+	}
+}
+
+/* ==========================================
+   ФИКСЫ И КЛИКАБЕЛЬНОСТЬ ЭЛЕМЕНТОВ
+   ========================================== */
+
+/* Принудительно возвращаем кликабельность всем интерактивным элементам */
 .rsvp-section form,
 .rsvp-section input,
 .rsvp-section label,
@@ -564,9 +650,9 @@ footer {
 	font-size: 1.3rem;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
-	z-index: 99999; /* Поднимаем её на самый верхний слой над всем контентом */
+	z-index: 99999;
 	transition: all 0.3s ease;
-	pointer-events: auto !important; /* Гарантируем, что она всегда будет нажиматься */
+	pointer-events: auto !important;
 }
 
 .music-btn:hover {
@@ -592,80 +678,33 @@ footer {
 		box-shadow: 0 0 0 0 rgba(143, 168, 130, 0);
 	}
 }
-/* Разрешаем клики внутри секции анкеты */
+
+/* Разрешаем клики внутри секции анкеты и фрейма */
 .rsvp-section,
 .rsvp-section iframe,
 .rsvp-section div {
-    pointer-events: auto !important;
+	pointer-events: auto !important;
 }
 
-/* Принудительно отображаем секцию анкеты и разрешаем внутри неё клики */
+/* Принудительно отображаем секцию анкеты */
 .rsvp-section.reveal {
 	opacity: 1 !important;
 	transform: none !important;
 	pointer-events: auto !important;
 }
 
-/* Отдельно для фрейма анкеты гарантируем работу кликов */
 .rsvp-section iframe {
 	width: 100% !important;
 	pointer-events: auto !important;
-
 }
 
-/* Контейнер для фоновых элементов */
-.floating-background {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1; /* Приподнимаем над основным глухим фоном body */
-	pointer-events: none; /* Пропускаем клики сквозь листики */
-	overflow: hidden;
-}
-
-/* Общие стили для каждого листика/лепестка */
-.leaf {
-	position: absolute;
-	font-size: 1.6rem;
-	opacity: 0.45; /* Сделали чуть ярче, чтобы они не терялись на светлом фоне */
-	animation: floatAnimation 12s infinite ease-in-out;
-}
-
-/* Настраиваем позиции и задержки для элементов */
-.leaf-1 { top: 10%; left: 3%; animation-duration: 14s; animation-delay: 0s; }
-.leaf-2 { top: 35%; right: 5%; animation-duration: 18s; animation-delay: 2s; font-size: 1.3rem; }
-.leaf-3 { top: 60%; left: 4%; animation-duration: 16s; animation-delay: 1s; }
-.leaf-4 { top: 80%; right: 6%; animation-duration: 15s; animation-delay: 3s; }
-.leaf-5 { top: 25%; left: 90%; animation-duration: 20s; animation-delay: 4s; font-size: 1.4rem; }
-.leaf-6 { top: 50%; left: 8%; animation-duration: 13s; animation-delay: 0.5s; }
-
-/* Анимация плавного парения */
-@keyframes floatAnimation {
-	0% {
-		transform: translateY(0) translateX(0) rotate(0deg);
-	}
-	25% {
-		transform: translateY(-15px) translateX(10px) rotate(10deg);
-	}
-	50% {
-		transform: translateY(-30px) translateX(-5px) rotate(-15deg);
-	}
-	75% {
-		transform: translateY(-15px) translateX(-15px) rotate(5deg);
-	}
-	100% {
-		transform: translateY(0) translateX(0) rotate(0deg);
-	}
-}
-
-
-/* Поднимаем текстовые блоки над летающими листиками */
+/* Поднимаем текстовые блоки над фоном, если он будет использоваться */
 .welcome-text-section,
 .calendar-section,
-.dress-code-section,
-.rsvp-section {
+.dresscode-section,
+.rsvp-section,
+.countdown-section,
+.timeline-section {
 	position: relative;
-	z-index: 2; /* Этот слой выше, чем у листиков (2 > 1) */
+	z-index: 2;
 }
