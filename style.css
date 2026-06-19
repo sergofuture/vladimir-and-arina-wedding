@@ -504,10 +504,9 @@ footer {
 
 /* Полное решение проблемы некликабельности анимированных блоков */
 .reveal {
-	opacity: 0;
-	transform: translateY(30px);
-	transition: all 0.8s ease-out;
-	pointer-events: none; /* Пропускает клики сквозь себя, пока блок скрыт */
+	opacity: 1 !important;
+	transform: none !important;
+	pointer-events: auto !important; 
 }
 
 .reveal.active {
@@ -589,4 +588,10 @@ footer {
 	100% {
 		box-shadow: 0 0 0 0 rgba(143, 168, 130, 0);
 	}
+}
+/* Разрешаем клики внутри секции анкеты */
+.rsvp-section,
+.rsvp-section iframe,
+.rsvp-section div {
+    pointer-events: auto !important;
 }
